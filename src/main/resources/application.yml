@@ -1,0 +1,25 @@
+server:
+  error:
+    include-stacktrace: never
+  port: 9000 # server port
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        max-age: 3600s # 1 Hour
+        name: MY_SESSION
+spring:
+  cache:
+    type: redis
+    redis:
+      time-to-live: PT30M #30minutes
+  redis:
+    host: localhost
+    port: 6379
+    password: ""
+  session:
+    store-type: redis
+    redis:
+      cleanup-cron: 0 1 * * * *
+  jackson:
+    date-format: "yyyy-MM-dd HH:mm:ss"
